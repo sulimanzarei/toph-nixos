@@ -42,6 +42,15 @@
   zramSwap.enable = true;
   services.fstrim.enable = true;
 
+  # Desktop baseline: KDE Plasma 6 on Wayland, SDDM login screen
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
+  # Browser
+  programs.firefox.enable = true;
+
+
   # The release this system was FIRST installed with. Never change it.
   system.stateVersion = "26.05";
 
