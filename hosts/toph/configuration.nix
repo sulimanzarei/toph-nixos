@@ -58,7 +58,21 @@
     open = true;
     modesetting.enable = true;
     nvidiaSettings = true;
+    powerManagement.enable = true;
   };  
+
+  # Audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = false;
 
   # The release this system was FIRST installed with. Never change it.
   system.stateVersion = "26.05";
