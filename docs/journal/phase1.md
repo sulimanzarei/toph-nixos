@@ -11,7 +11,7 @@
 - Identified the disks with `lsblk`.
 
 ### Windows was booting from my Linux test SSD
-- ![The Windows NVMe had no EFI System Partition. `efibootmgr` showed "Windows Boot Manager" pointing at the Samsung's EFI partition](docs/img/phase1-windows-wrong-boot-drive.png), a read-only mount showed `EFI/Microsoft` on it, and PowerShell's `IsSystem`/`IsBoot` check confirmed it. Wiping the Samsung would have broken Windows.
+- The Windows NVMe had no EFI System Partition. `efibootmgr` showed "Windows Boot Manager" pointing at the Samsung's EFI partition, a read-only mount showed `EFI/Microsoft` on it, and PowerShell's `IsSystem`/`IsBoot` check confirmed it. Wiping the Samsung would have broken Windows. ![Windows Using The Wrong Boot Drive](../img/phase1-windows-wrong-boot-drive.png)
 - The fix, from Windows with the 3TB HDD unplugged: shrank C: by 600 MiB, created an EFI partition on the NVMe with `diskpart`, and copied the boot files.
 - Finally, with the Samsung unplugged, Windows booted on its own and `IsSystem` moved to the NVMe.
 
