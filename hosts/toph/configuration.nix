@@ -5,7 +5,11 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Boot: systemd-boot on the Samsung's EFI partition (/boot)
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -33,6 +37,7 @@
     pciutils
     usbutils
     fastfetch
+    sbctl
   ];
 
   # Enable modern nix commands and flakes
