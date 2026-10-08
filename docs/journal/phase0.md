@@ -6,11 +6,11 @@
 
 1. Created a private GitHub repo with an MIT license and the Nix `.gitignore` template, turned on GitHub's email privacy settings, and edited .gitignore to ensure common secrets stay hidden.
 2. Downloaded the NixOS ISO and verified its SHA256 hash against the published one, wrote the ISO to a USB stick using Rufus in DD Image mode.
-![ISO SHA256 hash matches the published value](docs/img/phase0-nixOS-ISO-hash-check.png)
+![ISO SHA256 hash matches the published value](../img/phase0-nixOS-ISO-hash-check.png)
 
 3. Checked BitLocker status with `manage-bde -status`.
 4. Verified Secure Boot is off and the firmware is in UEFI mode (msinfo32).
-![Verification of Secure Boot and firmware settings](docs/img/phase0-msinfo32.png)
+![Verification of Secure Boot and firmware settings](../img/phase0-msinfo32.png)
 5. Organized uploaded screenshots for better reference management during documentation.
 
 
