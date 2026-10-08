@@ -50,6 +50,15 @@
   # Browser
   programs.firefox.enable = true;
 
+  # NVIDIA 3070: open kernel modules:
+  nixpkgs.config.allowUnfree = true;
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+  };  
 
   # The release this system was FIRST installed with. Never change it.
   system.stateVersion = "26.05";

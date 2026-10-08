@@ -18,6 +18,7 @@
     };
   };
 
+ 
   # Bash managed by Home Manager, with shortcuts for rebuilding
   programs.bash = {
     enable = true;
