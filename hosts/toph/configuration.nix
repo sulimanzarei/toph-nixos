@@ -5,6 +5,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Boot: Lanzaboote (signed systemd-boot) on the Samsung's EFI partition; keys in /var/lib/sbctl
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
