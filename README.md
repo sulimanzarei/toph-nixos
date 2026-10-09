@@ -87,8 +87,8 @@ SSH keys, Secure Boot signing keys (`/var/lib/sbctl`), passwords and access toke
 This config is written for one machine. It isn't a template, but it's free to read and borrow from.
 
 ```
-git clone https://github.com/sulimanzarei/toph-nixos.git ~/nixos-setup
-cd ~/nixos-setup
+git clone https://github.com/sulimanzarei/toph-nixos.git ~/toph-nixos
+cd ~/toph-nixos
 nixos-rebuild switch --flake .#toph --sudo
 ```
 
