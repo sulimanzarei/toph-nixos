@@ -29,5 +29,5 @@ Collected with `inxi -Fxxz` from the NixOS 26.05 live USB on 2026-10-05. Serial 
 
 ## Notes/Things To Be Fixed
 
-- Under the live USB's `nouveau` driver, the LG ran at 144 Hz.
+- ~~Under the live USB's `nouveau` driver, the LG ran at 144 Hz.~~ Fixed in Phase 3: 240Hz with the NVIDIA driver.
 - Ethernet linked at 1 Gbps, although the card supports 2.5 Gbps.
