@@ -23,8 +23,8 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      rebuild      = "nixos-rebuild switch --flake ~/nixos-setup#toph --sudo";
-      rebuild-test = "nixos-rebuild test --flake ~/nixos-setup#toph --sudo";
+      rebuild      = "nixos-rebuild switch --flake ~/toph-nixos#toph --sudo";
+      rebuild-test = "nixos-rebuild test --flake ~/toph-nixos#toph --sudo";
     };
   };
 
