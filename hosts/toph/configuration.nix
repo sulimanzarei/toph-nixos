@@ -1,11 +1,10 @@
-# toph: NixOS configuration, Phase 1 (minimal , text-only)
+# toph: NixOS system configuration
 { config, lib, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
 
-  # Boot: systemd-boot on the Samsung's EFI partition (/boot)
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  # Boot: Lanzaboote (signed systemd-boot) on the Samsung's EFI partition; keys in /var/lib/sbctl
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
@@ -79,9 +78,10 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
+  # To remember SSH key for session
+  programs.ssh.startAgent = true;
+
   # The release this system was FIRST installed with. Never change it.
   system.stateVersion = "26.05";
 
-  # To remember SSH key for session
-  programs.ssh.startAgent = true;
 }
