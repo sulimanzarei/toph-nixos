@@ -32,7 +32,7 @@
 ## What broke or surprised me
 
 - **The hidden Windows dependency** described above. It was only found because I identified every disk before running anything destructive.
-- **Network didn't work after the install.** The DHCP gave out the wrong IP address (192.168.0.x instead of 192.168.100.x), will need to investigate further. I set it manually with `nmcli`.
+- **Network didn't work after the install.** The DHCP gave out the wrong IP address (192.168.0.x instead of 192.168.100.x), ~~will need to investigate further~~. I set it manually with `nmcli`. **[Fixed in Phase 3]**
 - **My first commit showed "Unverified"** because the no-reply email was missing the `+`. Fixed it with `git commit --amend --reset-author` and `git push --force-with-lease`.
 
 ## Decisions
