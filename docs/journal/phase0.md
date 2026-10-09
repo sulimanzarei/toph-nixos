@@ -6,7 +6,10 @@
 
 1. Created a private GitHub repo with an MIT license and the Nix `.gitignore` template, turned on GitHub's email privacy settings, and edited .gitignore to ensure common secrets stay hidden.
 2. Downloaded the NixOS ISO and verified its SHA256 hash against the published one, wrote the ISO to a USB stick using Rufus in DD Image mode.
-![ISO SHA256 hash matches the published value](../img/phase0-nixOS-ISO-hash-check.png)
+![ISO hash check](../img/phase0-nixOS-ISO-hash-check.png)
+
+> [!NOTE]
+> The hash printed above the dialog belongs to a newer build (26.05.11150), not the ISO I downloaded (26.05.11045), so this screenshot alone doesn't prove a match. Re-checked on 2026-10-09: my ISO's SHA-256 (`abf609d2…9586c30`) matches the official `.sha256` file for build 11045 on releases.nixos.org. Lesson: compare against the published hash for the exact file name.
 
 3. Checked BitLocker status with `manage-bde -status`.
 4. Verified Secure Boot is off and the firmware is in UEFI mode (msinfo32).
