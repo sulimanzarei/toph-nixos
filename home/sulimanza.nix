@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  # Other Home Manager files, one per topic
+  imports = [ ./hyprland.nix ];
+
   home.username = "sulimanza";
   home.homeDirectory = "/home/sulimanza";
 

@@ -52,6 +52,13 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
+  # Hyprland: tiling Wayland compositor, started through UWSM so it runs as a proper systemd session.
+  # Appears at the SDDM login screen as "Hyprland (uwsm-managed)"; Plasma stays as the fallback.
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
   # Browser
   programs.firefox.enable = true;
 
