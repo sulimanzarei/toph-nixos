@@ -1,11 +1,39 @@
 -- toph: how everything looks. This is the ricing file.
---
--- The colours are placeholders. The colour pipeline (next step) will
--- generate them, either from my signature blue or from the wallpaper.
 
-local blue      = "rgba(3d7bffee)"
-local blueLight = "rgba(7fb2ffee)"
-local idle      = "rgba(1c2230aa)"   -- unfocused windows: almost black
+------------------------------------------------------------------------
+-- Colours
+------------------------------------------------------------------------
+-- `toph-theme` has matugen write the current palette to
+-- ~/.local/state/toph/hyprland-colors.lua and then reloads Hyprland.
+-- Until that file exists, these fallbacks (my signature blue) are used.
+local fallback = {
+    source           = "0d73cc",
+    primary          = "a4c9ff",
+    primaryContainer = "0d73cc",
+    surface          = "101419",
+    outlineVariant   = "414752",
+    shadow           = "000000",
+}
+
+local function loadPalette()
+    local state = os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")
+    local ok, palette = pcall(dofile, state .. "/toph/hyprland-colors.lua")
+    if ok and type(palette) == "table" then
+        return palette
+    end
+    return fallback
+end
+
+local c = loadPalette()
+
+-- Hyprland colours are "rgba(RRGGBBAA)"; the last two digits are opacity
+local function rgba(hex, alpha)
+    return "rgba(" .. hex .. (alpha or "ff") .. ")"
+end
+
+local accent      = rgba(c.source, "ee")           -- the source colour itself
+local accentLight = rgba(c.primary, "ee")          -- a lighter tone of it
+local idle        = rgba(c.outlineVariant, "aa")   -- unfocused windows
 
 ------------------------------------------------------------------------
 -- Layout, borders, corners, blur, shadows
@@ -16,7 +44,7 @@ hl.config({
         gaps_out    = 14,   -- between windows and the screen edge
         border_size = 2,
         col = {
-            active_border   = { colors = { blue, blueLight }, angle = 45 },
+            active_border   = { colors = { accent, accentLight }, angle = 45 },
             inactive_border = idle,
         },
         layout           = "dwindle",
@@ -31,7 +59,7 @@ hl.config({
             enabled      = true,
             range        = 18,
             render_power = 3,
-            color        = 0x66000000,   -- 0xAARRGGBB: black at 40% opacity
+            color        = rgba(c.shadow, "66"),   -- 66 = 40% opacity
         },
 
         blur = {

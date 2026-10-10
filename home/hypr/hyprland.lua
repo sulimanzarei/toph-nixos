@@ -90,6 +90,25 @@ hl.window_rule({
 })
 
 ------------------------------------------------------------------------
+-- Startup
+------------------------------------------------------------------------
+-- Runs once when Hyprland starts (not on config reloads).
+-- awww-daemon draws the wallpaper and brings back the last one by itself;
+-- `toph-theme wall` changes it.
+hl.on("hyprland.start", function()
+    hl.exec_cmd("uwsm app -- awww-daemon")
+end)
+
+-- No Hyprland logo or mascot wallpaper; plain black shows until awww draws
+hl.config({
+    misc = {
+        disable_hyprland_logo    = true,
+        disable_splash_rendering = true,
+        background_color         = 0xff000000,
+    },
+})
+
+------------------------------------------------------------------------
 -- The rest, one file per topic
 ------------------------------------------------------------------------
 require("look")   -- gaps, borders, corners, blur, shadows, animations

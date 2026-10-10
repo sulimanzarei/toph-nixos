@@ -81,6 +81,12 @@ hl.bind(mod .. " + SHIFT + S", screenshot(true),  { desc = "Screenshot a region"
 hl.bind(mod .. " + SHIFT + A", screenshot(false), { desc = "Screenshot all screens" })
 
 ------------------------------------------------------------------------
+-- Wallpaper and colours (the toph-theme command, see home/scripts/toph-theme.sh)
+------------------------------------------------------------------------
+hl.bind(mod .. " + W",         hl.dsp.exec_cmd("toph-theme wall"),   { desc = "Random wallpaper" })
+hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("toph-theme toggle"), { desc = "Colours: signature / from wallpaper" })
+
+------------------------------------------------------------------------
 -- Volume keys (also work on the lock screen later)
 ------------------------------------------------------------------------
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
