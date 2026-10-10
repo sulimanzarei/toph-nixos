@@ -27,7 +27,10 @@ in
   # Apps it starts go through UWSM, like everything else launched from Hyprland.
   programs.fuzzel = {
     enable = true;
-    settings.main.launch-prefix = "uwsm app --";
+    settings.main = {
+      launch-prefix = "uwsm app --";
+      font = "sans-serif:size=13";   # the system's interface font (hosts/toph/fonts.nix)
+    };
   };
 
   # Screenshots: slurp picks a region, grim captures it, wl-copy puts it on the clipboard

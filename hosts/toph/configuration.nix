@@ -2,7 +2,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./fonts.nix
+  ];
 
   # Boot: Lanzaboote (signed systemd-boot) on the Samsung's EFI partition; keys in /var/lib/sbctl
   boot.loader.systemd-boot.enable = lib.mkForce false;
